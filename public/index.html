@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Socket.IO ChatRoom</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="/socket.io/socket.io.js"></script>
+    <script defer src="code.js"></script>
+    <script>
+        const socket = io();
+        socket.on('connect', () => {
+            console.log('Connected to the server');
+        });
+    </script>
+</head>
+
+<body>
+    <div class="app">
+        <div class="screen join-screen active">
+            <div class="form">
+                <h2>Join Chatroom</h2>
+                <div class="form-input">
+                    <label>Username</label>
+                    <input type="text" id="username">
+                </div>
+                <div class="form-input">
+                    <button id="join-user">Join Chat</button>
+                </div>
+            </div>
+        </div>
+        <div class="screen chat-screen">
+            <div class="header">
+                <div class="logo">Chatroom</div>
+                <button id="exit-chat">Exit Chat</button>
+            </div>
+            <div id="messages" class="messages">
+            </div>
+            <div class="typebox">
+                <input type="text" id="message-input">
+                <button id="send-message">Send</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
